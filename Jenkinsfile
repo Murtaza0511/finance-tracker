@@ -1,17 +1,17 @@
 pipeline {
   agent any
 
-  environment {
+environment {
     AWS_REGION      = 'us-east-1'
-    AWS_ACCOUNT_ID  = credentials('aws-account-id')
-    ECR_REGISTRY    = "${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com"
-    BACKEND_IMAGE   = "${ECR_REGISTRY}/finance-backend"
-    FRONTEND_IMAGE  = "${ECR_REGISTRY}/finance-frontend"
+    AWS_ACCOUNT_ID  = '251819893831'
+    ECR_REGISTRY    = "251819893831.dkr.ecr.us-east-1.amazonaws.com"
+    BACKEND_IMAGE   = "251819893831.dkr.ecr.us-east-1.amazonaws.com/finance-backend"
+    FRONTEND_IMAGE  = "251819893831.dkr.ecr.us-east-1.amazonaws.com/finance-frontend"
     IMAGE_TAG       = "${env.GIT_COMMIT[0..6]}"
-    S3_BUCKET       = 'finance-frontend-YOUR-NAME'
+    S3_BUCKET       = 'finance-frontend-yourname-2024'
     ECS_CLUSTER     = 'finance-cluster'
     ECS_SERVICE     = 'finance-backend-service'
-  }
+}
 
   stages {
 
